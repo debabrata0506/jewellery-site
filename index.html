@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baishakhi Jewellery & Shankhabhandar</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- THEME COLORS --- */
+        :root {
+            --cream: #fdfbf7;
+            --maroon: #800000;
+            --gold: #d4af37;
+            --text-dark: #333333;
+            --whatsapp: #25D366;
+        }
+
+        /* --- BASIC RESET --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--maroon);
+            color: var(--gold);
+            text-align: center;
+            padding: 15px 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky; /* Keeps header at top while scrolling */
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .shop-name-bn {
+            font-family: 'Noto Serif Bengali', serif;
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .shop-name-en {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+        }
+
+        /* --- MAIN CONTAINER --- */
+        main {
+            padding: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- CATEGORIES --- */
+        .category-section {
+            margin-bottom: 40px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #f0eada;
+        }
+
+        .category-title {
+            color: var(--maroon);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* --- PRODUCT GRID --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 products per row on mobile */
+            gap: 12px;
+        }
+
+        /* Desktop Layout (4 products per row) */
+        @media (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+            .shop-name-bn { font-size: 28px; }
+            .shop-name-en { font-size: 16px; }
+            main { padding: 30px; }
+        }
+
+        /* --- PRODUCT CARD --- */
+        .product-card {
+            background-color: var(--cream);
+            border: 1px solid #e8e2d3;
+            border-radius: 6px;
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .product-details {
+            padding: 10px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-name {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .product-price {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--maroon);
+            margin-bottom: 10px;
+        }
+
+        /* --- WHATSAPP BUTTON --- */
+        .btn-whatsapp {
+            display: block;
+            background-color: var(--whatsapp);
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 5px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-whatsapp:active {
+            opacity: 0.8;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--maroon);
+            color: #fff;
+            text-align: center;
+            padding: 20px 15px;
+            margin-top: 20px;
+            border-top: 3px solid var(--gold);
+        }
+        
+        footer p {
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="shop-name-bn">বৈশাখী জুয়েলারি অ্যান্ড শঙ্খভান্ডার</h1>
+        <h2 class="shop-name-en">Baishakhi Jewellery & Shankhabhandar</h2>
+    </header>
+
+    <main id="store-catalog">
+        </main>
+
+    <footer>
+        <p style="font-family: 'Noto Serif Bengali', serif; font-size: 18px; color: var(--gold);">বৈশাখী জুয়েলারি অ্যান্ড শঙ্খভান্ডার</p>
+        <p>Premium Imitation Jewellery | Fast WhatsApp Ordering</p>
+        <p>Contact: +91 90195 06561</p>
+    </footer>
+
+    <script>
+        // Shop Details
+        const shopName = "Baishakhi Jewellery & Shankhabhandar";
+        const whatsappNumber = "919019506561"; // No plus sign, exactly as requested
+
+        // Product Catalog Data (You can easily add/edit products here)
+        // Images are currently placeholders. Replace the "img" links with your actual photo links later.
+        const productsData = [
+            {
+                category: "Earrings",
+                items: [
+                    { name: "Traditional Jhumka", price: 250, img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=300&q=80" },
+                    { name: "Gold Plated Studs", price: 150, img: "https://images.unsplash.com/photo-1635322966219-b75ed372eb01?auto=format&fit=crop&w=300&q=80" },
+                    { name: "Long Drop Earrings", price: 300, img: "https://images.unsplash.com/photo-1637380064223-b6d39d9e6eb1?auto=format&fit=crop&w=300&q=80" },
+                    { name: "Bridal Heavy Earring", price: 450, img: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=300&q=80" }
+                ]
+            },
+            {
+                category: "Necklace / Haar",
+                items: [
+                    { name: "Bridal Long Haar", price: 1200, img: "https://images.unsplash.com/photo-1599643478514-4a884f18161e?auto=format&fit=crop&w=300&q=80" },
+                    { name: "Short Choker Set", price: 800, img: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=300&q=80" },
+                    { name: "Gold Plated Sita Haar", price: 1500, img: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=300&q=80" }
+                ]
+            },
+            {
+                category: "Bangles",
+                items: [
+                    { name: "Gold Polished Bangles", price: 400, img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=300&q=80" },
+                    { name: "Designer Bala (Set)", price: 600, img: "https://images.unsplash.com/photo-1631541909061-71e34dd6bcce?auto=format&fit=crop&w=300&q=80" }
+                ]
+            },
+            {
+                category: "Shankha & Pola",
+                items: [
+                    { name: "Design White Shankha", price: 300, img: "https://images.unsplash.com/photo-1602751584552-8ba73aad10ee?auto=format&fit=crop&w=300&q=80" },
+                    { name: "Red Pola with Gold Bind", price: 350, img: "https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&w=300&q=80" }
+                ]
+            },
+            {
+                category: "Rings",
+                items: [
+                    { name: "Adjustable Stone Ring", price: 200, img: "https://images.unsplash.com/photo-1605100804763-247f67b2548e?auto=format&fit=crop&w=300&q=80" },
+                    { name: "Traditional Loha Band", price: 150, img: "https://images.unsplash.com/photo-1620656798579-1984d9e97e1d?auto=format&fit=crop&w=300&q=80" }
+                ]
+            }
+        ];
+
+        const storeCatalog = document.getElementById("store-catalog");
+
+        // Loop through each category to build the webpage
+        productsData.forEach(categoryObj => {
+            
+            // 1. Create Category Wrapper
+            const section = document.createElement("div");
+            section.className = "category-section";
+
+            // 2. Add Category Heading
+            const heading = document.createElement("h2");
+            heading.className = "category-title";
+            heading.innerText = categoryObj.category;
+            section.appendChild(heading);
+
+            // 3. Create Grid for Products
+            const grid = document.createElement("div");
+            grid.className = "product-grid";
+
+            // 4. Add Products to Grid
+            categoryObj.items.forEach(item => {
+                
+                // Construct Auto-filled WhatsApp Message
+                const message = `Hello ${shopName}!\n\nI want to order:\n*Product:* ${item.name}\n*Price:* ₹${item.price}\n\nPlease confirm availability.`;
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+                // Build HTML for a single product card
+                const cardHTML = `
+                    <div class="product-card">
+                        <img src="${item.img}" alt="${item.name}" class="product-image" loading="lazy">
+                        <div class="product-details">
+                            <div>
+                                <h3 class="product-name">${item.name}</h3>
+                                <div class="product-price">₹${item.price}</div>
+                            </div>
+                            <a href="${whatsappLink}" target="_blank" class="btn-whatsapp">
+                                🛒 Order on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += cardHTML;
+            });
+
+            section.appendChild(grid);
+            storeCatalog.appendChild(section);
+        });
+    </script>
+</body>
+</html>
